@@ -12,7 +12,7 @@ export class ColleagueListComponent {
     {
       pseudo: "minimiskine",
       score:  50,
-      photo: "https://randomuser.me/api/portraits/men/75.jpg",
+      photo: "https://randomuser.me/api/portraits/men/74.jpg",
     },
     {
       pseudo: "megamiskine",
@@ -22,22 +22,22 @@ export class ColleagueListComponent {
     {
       pseudo: 'Galérien',
       score: 0,
-      photo: 'https://randomuser.me/api/portraits/men/75.jpg',
+      photo: 'https://randomuser.me/api/portraits/men/73.jpg',
     },
     {
       pseudo: 'Dolorhombre',
       score: 12,
-      photo: 'https://randomuser.me/api/portraits/men/75.jpg',
+      photo: 'https://randomuser.me/api/portraits/women/75.jpg',
     },
     {
       pseudo: 'Painman',
       score: 5,
-      photo: 'https://randomuser.me/api/portraits/men/75.jpg',
+      photo: 'https://randomuser.me/api/portraits/men/71.jpg',
     },
     {
       pseudo: 'StruggleBoy',
       score: 5,
-      photo: 'https://randomuser.me/api/portraits/men/75.jpg',
+      photo: 'https://randomuser.me/api/portraits/men/79.jpg',
     },
   ]
 
