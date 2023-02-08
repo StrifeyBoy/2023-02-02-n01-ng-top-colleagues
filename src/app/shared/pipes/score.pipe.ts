@@ -11,13 +11,10 @@ export class ScorePipe implements PipeTransform {
       diff = "+";
     }
 
-    else if(value == 0) {
+    else {
       diff = "";
     }
 
-    else {
-      diff = "-";
-    }
     return diff + value;
   }
 

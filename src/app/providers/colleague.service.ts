@@ -1,7 +1,10 @@
 import { Injectable } from '@angular/core';
 import {Colleague} from "../models/colleague";
 import {ColleagueComponent} from "../shared/components/colleague/colleague.component";
+import {Observable, Subject} from "rxjs";
+import {LikeHate} from "../models/like-hate";
 import {HttpClient} from "@angular/common/http";
+
 
 @Injectable({
   providedIn: 'root'
@@ -9,6 +12,17 @@ import {HttpClient} from "@angular/common/http";
 export class ColleagueService {
 
   constructor(private http: HttpClient) { }
+
+  private action = new Subject<LikeHate>();
+  get actionObs() {
+    return this.action.asObservable();
+  }
+  emit(data: LikeHate) {
+    this.action.next(data);
+  }
+  list(): Observable<Colleague[]> {
+    return this.http.get<Colleague[]>('https://dev.cleverapps.io/api/v2/colleagues')
+  }
 
   // list(): Colleague[] {
   //   return [
@@ -95,7 +109,4 @@ export class ColleagueService {
   //   ]
   // }
 
-  list() {
-    return this.http.get<Colleague[]>('https://dev.cleverapps.io/api/v2/colleagues');
-  }
 }

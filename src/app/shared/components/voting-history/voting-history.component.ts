@@ -3,6 +3,7 @@ import {Colleague} from "../../../models/colleague";
 import {Vote} from "../../../models/vote";
 import {VoteService} from "../../../providers/vote.service";
 import {LikeHate} from "../../../models/like-hate";
+import {VoteApi} from "../../../models/vote-api";
 
 @Component({
   selector: 'tc-voting-history',
@@ -10,22 +11,14 @@ import {LikeHate} from "../../../models/like-hate";
   styleUrls: ['./voting-history.component.scss']
 })
 export class VotingHistoryComponent {
-  @Input() colleague: Colleague = {
-    pseudo: "",
-    score: 0,
-    photo: ""
-  }
-  @Input() votes: Vote[] = [];
-  LikeHate = LikeHate;
+  votes: VoteApi[] = [];
 
   constructor(private voteService: VoteService) {
-    this.votes = this.voteService.getVotes();
-    this.voteService.voteObs().subscribe(
-      ()=> this.votes = this.voteService.getVotes()
-    )
+    this.voteService.list()
+      .subscribe(votesTab => this.votes = votesTab)
   }
 
-  deleteFromList(vote: Vote) {
+  deleteFromList(vote: VoteApi) {
     this.votes.splice(this.votes.indexOf(vote), 1);
   }
 
