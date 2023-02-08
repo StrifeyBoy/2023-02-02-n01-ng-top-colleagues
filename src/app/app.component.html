@@ -1,8 +1,21 @@
 <div class="jumbotron text-center">
   <h1>A Tale about Love and Hate: Colleagues Edition</h1>
+  <tc-counter></tc-counter>
 </div>
 
-<tc-colleague-list></tc-colleague-list>
-<tc-create-colleague></tc-create-colleague>
-<tc-counter></tc-counter>
-<tc-voting-history></tc-voting-history>
+<div class="flex-container">
+  <tc-create-colleague-forms></tc-create-colleague-forms>
+</div>
+<div class="row">
+  <div class="col-10">
+    <tc-colleague-list></tc-colleague-list>
+  </div>
+<!--<tc-create-colleague></tc-create-colleague>-->
+
+  <div class="col">
+    <tc-voting-history></tc-voting-history>
+  </div>
+  <div>
+    <tc-create-colleague></tc-create-colleague>
+  </div>
+</div>

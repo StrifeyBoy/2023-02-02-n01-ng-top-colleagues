@@ -3,7 +3,11 @@ import {Colleague} from "../models/colleague";
 import {ColleagueComponent} from "../shared/components/colleague/colleague.component";
 import {Observable, Subject} from "rxjs";
 import {LikeHate} from "../models/like-hate";
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {
+  CreateColleagueFormsComponent
+} from "../shared/components/create-colleague-forms/create-colleague-forms.component";
+import {ColleagueListComponent} from "../shared/components/colleague-list/colleague-list.component";
 
 
 @Injectable({
@@ -23,6 +27,27 @@ export class ColleagueService {
   list(): Observable<Colleague[]> {
     return this.http.get<Colleague[]>('https://dev.cleverapps.io/api/v2/colleagues')
   }
+
+ /* newColleagueForm(colleague: CreateColleagueFormsComponent) :Observable<any> {
+    console.log("Creation Collegue");
+    const httpOptions ={
+      headers: new HttpHeaders({
+        "Content-Type": "application/json"
+      })
+    };
+
+    return this.http
+      .post<ColleagueListComponent>(
+        'https://dev.cleverapps.io/api/v2/colleagues',
+        {
+          "pseudo": colleague.pseudo,
+          "lastN": colleague.lastN,
+          "firstN": colleague.firstN,
+          "photo": "https://randomuser.me/api/portraits/men/62.jpg"
+        },
+        httpOptions
+      )
+  } */
 
   // list(): Colleague[] {
   //   return [

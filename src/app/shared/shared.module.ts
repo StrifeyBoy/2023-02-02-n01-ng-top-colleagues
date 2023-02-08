@@ -7,6 +7,7 @@ import { ScorePipe } from '../shared/pipes/score.pipe';
 import { VotingHistoryComponent } from '../shared/components/voting-history/voting-history.component';
 import { CounterComponent } from '../shared/components/counter/counter.component';
 import {VoteService} from "../providers/vote.service";
+import { CreateColleagueFormsComponent } from './components/create-colleague-forms/create-colleague-forms.component';
 
 
 
@@ -19,6 +20,7 @@ import {VoteService} from "../providers/vote.service";
 
     VotingHistoryComponent,
     CounterComponent,
+    CreateColleagueFormsComponent,
   ],
   exports: [
     LikeHateComponent,
@@ -26,6 +28,7 @@ import {VoteService} from "../providers/vote.service";
     ColleagueListComponent,
     VotingHistoryComponent,
     CounterComponent,
+    CreateColleagueFormsComponent,
   ],
   imports: [
     CommonModule
