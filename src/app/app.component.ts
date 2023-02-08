@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NgbProgressbarModule } from '@ng-bootstrap/ng-bootstrap';
 import {Colleague} from "./models/colleague";
+import {Vote} from "./models/vote";
 
 @Component({
   selector: 'tc-root',
@@ -28,6 +29,12 @@ export class AppComponent {
     score: 5,
     photo: '',
 
+  }
+
+  votes: Vote[] =[]
+
+  traiterVote(vote: Vote){
+    this.votes.push(vote);
   }
 }
 

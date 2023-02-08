@@ -4,7 +4,7 @@ export interface Vote {
 
   colleague: Colleague;
 
-  vote: LikeHate;
+  likeHate: LikeHate;
 
 
 }

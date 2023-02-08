@@ -1,5 +1,6 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {LikeHate} from "../../../models/like-hate";
+import {VoteService} from "../../../providers/vote.service";
 
 @Component({
   selector: 'tc-like-hate',
@@ -21,4 +22,10 @@ export class LikeHateComponent {
     this.likeHateEmitter.emit(LikeHate.HATE);
   }
 
+  constructor(private voteService: VoteService) {
+  }
+
+  emitLike(likehate: LikeHate){
+    this.voteService.notifLikeHate(likehate);
+  }
 }

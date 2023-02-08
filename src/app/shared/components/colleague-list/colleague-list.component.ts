@@ -1,7 +1,9 @@
-import {Component, EventEmitter, Input, Output, ViewChild} from '@angular/core';
-import {Colleague} from "../../../models/colleague";
-import {LikeHateComponent} from "../like-hate/like-hate.component";
+import {Component, EventEmitter, Output} from '@angular/core';
 import {ColleagueService} from "../../../providers/colleague.service";
+import {VoteService} from "../../../providers/vote.service";
+import {LikeHate} from "../../../models/like-hate";
+import {Vote} from "../../../models/vote";
+import {Colleague} from "../../../models/colleague";
 
 @Component({
   selector: 'tc-colleague-list',
@@ -10,10 +12,38 @@ import {ColleagueService} from "../../../providers/colleague.service";
 })
 export class ColleagueListComponent {
 
+  @Output() vote = new EventEmitter<Vote>();
+  // colleagues: Colleague[] = this.colleagueService.list();
+  colleagues: Colleague[] = [];
 
-  colleagues: Colleague[] = this.colleagueService.list();
+  constructor(private colleagueService: ColleagueService,
+              private voteService: VoteService) {
+    this.init();
 
-  constructor(private colleagueService: ColleagueService) {
   }
+    init() {
+      this.colleagueService.list()
+        .subscribe((tabCols: Colleague[]) => this.colleagues = tabCols);
+    }
+
+  like(col:Colleague) {
+
+    this.voteService.vote(col.pseudo, LikeHate.LIKE)
+      .subscribe(colAJour => {
+        col.score = colAJour.score
+      })
+
+  }
+
+  hate(col: Colleague) {
+    this.voteService.vote(col.pseudo, LikeHate.HATE)
+      .subscribe(colAJour => {
+        col.score = colAJour.score
+      })
+  }
+
+  // traiterVote(vote:Vote){
+  //   this.vote.emit(vote);
+  // }
 
 }
