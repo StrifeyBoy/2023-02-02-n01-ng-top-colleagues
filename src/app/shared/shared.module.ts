@@ -8,6 +8,7 @@ import { VotingHistoryComponent } from '../shared/components/voting-history/voti
 import { CounterComponent } from '../shared/components/counter/counter.component';
 import {VoteService} from "../providers/vote.service";
 import { CreateColleagueFormsComponent } from './components/create-colleague-forms/create-colleague-forms.component';
+import { ColleagueDetailsComponent } from '../shared/components/colleague-details/colleague-details.component';
 
 
 
@@ -17,18 +18,17 @@ import { CreateColleagueFormsComponent } from './components/create-colleague-for
     ColleagueComponent,
     ColleagueListComponent,
     ScorePipe,
-
     VotingHistoryComponent,
     CounterComponent,
     CreateColleagueFormsComponent,
+    ColleagueDetailsComponent,
   ],
   exports: [
-    LikeHateComponent,
-    ColleagueComponent,
     ColleagueListComponent,
     VotingHistoryComponent,
     CounterComponent,
     CreateColleagueFormsComponent,
+    ColleagueDetailsComponent
   ],
   imports: [
     CommonModule

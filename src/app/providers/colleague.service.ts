@@ -8,6 +8,7 @@ import {
   CreateColleagueFormsComponent
 } from "../shared/components/create-colleague-forms/create-colleague-forms.component";
 import {ColleagueListComponent} from "../shared/components/colleague-list/colleague-list.component";
+import {ColleagueApi} from "../models/colleague-api";
 
 
 @Injectable({
@@ -26,6 +27,10 @@ export class ColleagueService {
   }
   list(): Observable<Colleague[]> {
     return this.http.get<Colleague[]>('https://dev.cleverapps.io/api/v2/colleagues')
+  }
+
+  getByPseudo(pseudo: string) {
+    return this.http.get<ColleagueApi>(`https://dev.cleverapps.io/api/v2/colleagues/${pseudo}` )
   }
 
  /* newColleagueForm(colleague: CreateColleagueFormsComponent) :Observable<any> {
